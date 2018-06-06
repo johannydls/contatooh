@@ -1,6 +1,7 @@
 var express = require('express');
 var load = require('express-load');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 //var home = require('../app/routes/home');
 
 module.exports = () => {
@@ -13,14 +14,13 @@ module.exports = () => {
     //Middleware
     app.use(express.static('./public'));
 
-
     //Engine View EJS
     app.set('view engine', 'ejs');
     app.set('views', './app/views');
 
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-    app.use(require('method-override'));
+    app.use(methodOverride());
 
     load('models', { cwd: 'app' })
         .then('controllers')
