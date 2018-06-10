@@ -2,7 +2,6 @@ var express = require('express');
 var load = require('express-load');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-//var home = require('../app/routes/home');
 
 module.exports = () => {
 
@@ -22,6 +21,7 @@ module.exports = () => {
     app.use(bodyParser.json());
     app.use(methodOverride());
 
+    //Substitui a variavel home = require('../app/routes/home')
     load('models', { cwd: 'app' })
         .then('controllers')
         .then('routes')
