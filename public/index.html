@@ -6,20 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Contatooh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
-<body ng-controller="ContatosController">
+<body class="container">
 
-    <h1>Bem vindo ao Contatooh!</h1>
+    <div ng-view></div>
 
-    <button ng-click="incrementa()">Novo</button>
-    <p>Contatos cadastrados: {{ total }}</p>
+    <!-- Scripts gerenciados pelo Bower -->
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
 
-
-    <script src="vendor/angular/angular.js"></script>
-
+    <!-- Módulo principal -->
     <script src="js/main.js"></script>
+
+    <!-- Controllers -->
     <script src="js/controller/ContatosController.js"></script>
+    <script src="js/controller/ContatoController.js"></script>
 
 </body>
 
