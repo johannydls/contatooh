@@ -21,6 +21,8 @@ angular.module('contatooh')
     //Variavel acessivel na view
     $scope.total = 0;
 
+    $scope.filtro = '';
+
     //Função acessível na view
     $scope.incrementa = () => {
         $scope.total++;
