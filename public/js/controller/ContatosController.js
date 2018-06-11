@@ -1,30 +1,42 @@
 angular.module('contatooh')
 
-.controller('ContatosController', function($scope) {
+.controller('ContatosController', function($scope, $resource) {
 
-    $scope.contatos = [{
-            "_id": 1,
-            "nome": "Contato Angular 1",
-            "email": "cont1@empresa.com.br"
-        },
-        {
-            "_id": 2,
-            "nome": "Contato Angular 2",
-            "email": "cont2@empresa.com.br"
-        },
-        {
-            "_id": 3,
-            "nome": "Contato Angular 3",
-            "email": "cont3@empresa.com.br"
-        }
-    ];
+    $scope.contatos = [];
     //Variavel acessivel na view
-    $scope.total = 0;
+    //$scope.total = 0;
 
     $scope.filtro = '';
 
-    //Função acessível na view
+    /*Função acessível na view
     $scope.incrementa = () => {
         $scope.total++;
+    };*/
+
+    let Contato = $resource('/contatos');
+
+    let buscaContatos = () => {
+        Contato.query((contatos) => {
+                $scope.contatos = contatos;
+            },
+            (erro) => {
+                console.log("Não foi possível obter a lista de contatos");
+                console.log(erro);
+            });
     };
+
+    buscaContatos();
+
+    /*
+    //Utilizando $http
+    $http({
+        method: 'GET',
+        url: '/contatos'
+    }).then((response) => {
+        $scope.contatos = response.data;
+        console.log(response.data);
+    }, (error) => {
+        console.log("Não foi possível obter a lista de contatos");
+        console.log(error)
+    })*/
 });

@@ -1,4 +1,4 @@
-var app = angular.module('contatooh', ['ngRoute']);
+var app = angular.module('contatooh', ['ngRoute', 'ngResource']);
 
 app.config(($routeProvider) => {
 
