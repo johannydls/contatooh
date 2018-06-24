@@ -22,6 +22,7 @@ module.exports = () => {
     app.use(methodOverride());
 
     //Substitui a variavel home = require('../app/routes/home')
+    //cwd define o diretório padrão 
     load('models', { cwd: 'app' })
         .then('controllers')
         .then('routes')

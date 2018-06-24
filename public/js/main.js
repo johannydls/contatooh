@@ -4,12 +4,14 @@ app.config(($routeProvider) => {
 
     $routeProvider
         .when('/contatos', {
-            title: 'Contatooh! - Contatos',
             templateUrl: 'partials/contatos.html',
             controller: 'ContatosController',
         })
         .when('/contato/:contatoId', {
-            title: 'Contatooh! - Contato',
+            templateUrl: 'partials/contato.html',
+            controller: 'ContatoController'
+        })
+        .when('/contato', {
             templateUrl: 'partials/contato.html',
             controller: 'ContatoController'
         })

@@ -2,18 +2,16 @@ module.exports = (app) => {
 
     let controller = app.controllers.contato;
 
+    //Esse nome de rota será usado quando for consumir a API Rest
     app.route('/contatos')
-        .get(controller.listaContatos);
-    //.post(controller.salvaContato);
+        .get(controller.listaContatos)
+        .post(controller.salvaContato);
 
+
+    //id capturado pelo frontend
     app.route('/contatos/:id')
         .get(controller.obtemContato)
-        .delete(controller.removeContato);
+        .delete(controller.removeContato)
 
-    /*
-    app.get('/contatos', controller.listaContatos);
-    app.post('/contatos', controller.salvaContato);
 
-    app.get('/contatos/:id', controller.obtemContato);
-    app.delete('/contatos/:id', controller.removeContato);*/
 }

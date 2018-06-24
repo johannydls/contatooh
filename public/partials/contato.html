@@ -1,3 +1,23 @@
-<h1>Contato</h1>
+<h1 class="text-center">Contato</h1>
 
-<h2>{{ idContato }}</h2>
+<div class="alert alert-info" ng-show="mensagem.texto">
+    {{ mensagem.texto }}
+</div>
+
+<form ng-submit="salva()">
+
+    <div class="form-group">
+        <label for="nome">Nome completo</label>
+        <input type="text" class="form-control" id="nome" name="nome" ng-model="contato.nome" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" name="email" ng-model="contato.email" required placeholder="email@exemplo.com" aria-label="Email" aria-describedby="basic-addon1">
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-outline-success">Salvar</button>
+        <a href="#!/" class="btn btn-outline-secondary">Voltar</a>
+    </div>
+</form>
