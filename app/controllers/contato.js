@@ -46,7 +46,7 @@ module.exports = () => {
 
         console.log('API: removeContato: ' + idContato);
 
-        res.send(204).end();
+        res.sendStatus(204).end();
     };
 
     controller.salvaContato = (req, res) => {
